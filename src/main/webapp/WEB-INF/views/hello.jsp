@@ -9,10 +9,29 @@
 </head>
 <body>
   <h1>This is a country list</h1>
-  <ul>
-    <c:forEach var="country" items="${countries}">
-      <li>${country.name}</li>
-    </c:forEach>
-  </ul>	  
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Destiny</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <c:forEach var="travel" items="${travels}">
+	      <tr>
+	        <td><a href="${travel.id}">${travel.name}</a></td>
+	        <td>${travel.description}</td>
+	        <td>${travel.destiny}</td>
+	        <td>${travel.startDate}</td>
+	        <td>${travel.endDate}</td>
+	        <td>${travel.price}</td>
+	      </tr>
+      </c:forEach>
+    </tbody>
+  </table>  
 </body>
 </html>
