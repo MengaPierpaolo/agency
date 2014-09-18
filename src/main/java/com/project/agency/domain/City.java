@@ -8,38 +8,45 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 
 @Entity
-@Table(name = "countries")
-public class Country implements Serializable {
-	
+@Table(name = "cities")
+public class City implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Type(type = "integer")
-	private int id;
+	@Type(type = "long")
+	private long id;
 	
 	@Type(type = "string")
 	private String name;
 	
-	//Relationships
-	@OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
-	private Set<City> cities;
+	// Relationships
+	@ManyToOne
+	@JoinColumn(name = "country_id")
+	private Country country;
 	
-	public Country() {
+	@OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+	private Set<Travel> travels;
+	
+	public City() {
 		
 	}
 
-	public int getId() {
+	// Getters & setters
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -51,12 +58,20 @@ public class Country implements Serializable {
 		this.name = name;
 	}
 
-	public Set<City> getCities() {
-		return cities;
+	public Country getCountry() {
+		return country;
 	}
 
-	public void setCities(Set<City> cities) {
-		this.cities = cities;
+	public void setCountry(Country country) {
+		this.country = country;
 	}
+
+	public Set<Travel> getTravels() {
+		return travels;
+	}
+
+	public void setTravels(Set<Travel> travels) {
+		this.travels = travels;
+	}	
 
 }
