@@ -18,7 +18,7 @@ public class CityRepositoryImpl implements CityRepository {
 	@Override
 	public List<City> findAll() {
 		@SuppressWarnings("unchecked")
-		List<City> cities = sessionFactory.getCurrentSession().createQuery("from City").list();
+		List<City> cities = sessionFactory.getCurrentSession().createQuery("FROM City c LEFT JOIN FETCH c.country").list();
 		return cities;
 	}
 
