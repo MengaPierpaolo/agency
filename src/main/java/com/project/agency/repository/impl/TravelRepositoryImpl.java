@@ -18,7 +18,7 @@ public class TravelRepositoryImpl implements TravelRepository {
 	@Override
 	public List<Travel> findAll() {
 		@SuppressWarnings("unchecked")
-		List<Travel> travels = sessionFactory.getCurrentSession().createQuery("from Travel").list();
+		List<Travel> travels = sessionFactory.getCurrentSession().createQuery("FROM Travel t LEFT JOIN FETCH t.city").list();
 		return travels;
 	}
 
