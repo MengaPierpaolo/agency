@@ -72,6 +72,14 @@ public class City implements Serializable {
 
 	public void setTravels(Set<Travel> travels) {
 		this.travels = travels;
-	}	
+	}
+	
+	public String getCountryName() {
+		return country.getName();
+	}
+	
+	public String getDestinyName() {
+		return getName() + ", " + getCountryName();
+	}
 
 }
