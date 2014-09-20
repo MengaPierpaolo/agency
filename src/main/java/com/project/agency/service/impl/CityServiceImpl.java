@@ -21,4 +21,9 @@ public class CityServiceImpl implements CityService {
 		return cityRepository.findAll();
 	}
 
+	@Transactional
+	public City getCity(Long cityId) {
+		return cityRepository.getCity(cityId);
+	}
+
 }

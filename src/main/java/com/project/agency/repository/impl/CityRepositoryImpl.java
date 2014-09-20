@@ -11,15 +11,22 @@ import com.project.agency.repository.CityRepository;
 
 @Repository
 public class CityRepositoryImpl implements CityRepository {
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Override
 	public List<City> findAll() {
 		@SuppressWarnings("unchecked")
-		List<City> cities = sessionFactory.getCurrentSession().createQuery("FROM City c LEFT JOIN FETCH c.country").list();
+		List<City> cities = sessionFactory.getCurrentSession()
+				.createQuery("FROM City c LEFT JOIN FETCH c.country").list();
 		return cities;
+	}
+
+	@Override
+	public City getCity(Long cityId) {
+		City city = (City) sessionFactory.getCurrentSession().get(City.class, cityId);
+		return city;
 	}
 
 }
