@@ -112,7 +112,14 @@ public class Travel implements Serializable {
 	}
 	
 	public String getDestiny() {
-		return city.getName() + ", " + city.getCountry().getName();
+		return city.getDestinyName();
+	}
+	
+	@Override
+	public String toString() {
+		return "Travel[id=" + id + ", name=" + name + ", description="
+				+ description + ", startDate=" + startDate + ", endDate="
+				+ endDate + ", price=" + price + ", city=" + city + "]";
 	}
 
 }
