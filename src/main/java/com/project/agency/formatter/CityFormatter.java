@@ -13,7 +13,9 @@ import com.project.agency.service.CityService;
 /**
  * Utilizado para desplegar en un form:select al objeto como una cadena
  * de texto y que al ser enviado al controlador pase como objeto nuevamente
- * en lugar de un valor nulo
+ * en lugar de un valor nulo.
+ * 
+ * Debe configurarse su uso en el archivo /WEB-INF/spring/servlet-context.xml
  */
 @Component
 public class CityFormatter implements Formatter<City> {

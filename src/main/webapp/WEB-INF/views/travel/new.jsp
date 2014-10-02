@@ -25,10 +25,12 @@
     <p>
       <form:label path="startDate">Start date</form:label>
       <form:input path="startDate" />
+      <form:errors path="startDate" />
     </p>
     <p>
       <form:label path="endDate">End date</form:label>
       <form:input path="endDate" />
+      <form:errors path="endDate" />
     </p>
     <p>
       <form:label path="price">Price</form:label>

@@ -62,6 +62,7 @@
     <property name="formatters">
       <set>
         <ref bean="cityFormatter" />
+        <!-- <ref bean="dateFormatter" /> -->
       </set>
     </property>
   </bean>
