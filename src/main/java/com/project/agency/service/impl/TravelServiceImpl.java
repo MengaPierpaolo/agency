@@ -21,4 +21,9 @@ public class TravelServiceImpl implements TravelService {
 		return travelRepository.findAll();
 	}
 
+	@Transactional
+	public void save(Travel travel) {
+		travelRepository.save(travel);
+	}
+
 }

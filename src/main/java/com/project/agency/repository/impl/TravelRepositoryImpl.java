@@ -18,8 +18,17 @@ public class TravelRepositoryImpl implements TravelRepository {
 	@Override
 	public List<Travel> findAll() {
 		@SuppressWarnings("unchecked")
-		List<Travel> travels = sessionFactory.getCurrentSession().createQuery("FROM Travel t LEFT JOIN FETCH t.city as c LEFT JOIN FETCH c.country").list();
+		List<Travel> travels = sessionFactory
+				.getCurrentSession()
+				.createQuery(
+						"FROM Travel t LEFT JOIN FETCH t.city as c LEFT JOIN FETCH c.country ORDER BY t.startDate DESC")
+				.list();
 		return travels;
+	}
+
+	@Override
+	public void save(Travel travel) {
+		sessionFactory.getCurrentSession().saveOrUpdate(travel);
 	}
 
 }

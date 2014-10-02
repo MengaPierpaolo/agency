@@ -7,5 +7,7 @@ import com.project.agency.domain.Travel;
 public interface TravelRepository {
 	
 	public List<Travel> findAll();
+	
+	public void save(Travel travel);
 
 }
