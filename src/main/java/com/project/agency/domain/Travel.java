@@ -15,8 +15,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Type;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "travels")
@@ -30,20 +32,27 @@ public class Travel implements Serializable {
 	private long id;
 	
 	@Type(type = "string")
+	@NotNull
 	private String name;
 	
 	@Lob
+	@NotNull
 	private String description;
 	
 	@Column(name = "start_date")
 	@Temporal(TemporalType.DATE)
+	@NotNull
+	@DateTimeFormat(pattern = "dd/mm/yyyy")
 	private Date startDate;
 	
 	@Column(name = "end_date")
 	@Temporal(TemporalType.DATE)
+	@NotNull
+	@DateTimeFormat(pattern = "dd/mm/yyyy")
 	private Date endDate;
 	
 	@Type(type = "big_decimal")
+	@NotNull
 	private BigDecimal price;
 	
 	// Relationships
